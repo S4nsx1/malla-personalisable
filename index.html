@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malla Interactiva</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">✅</div>
+      <div>
+        <h1>Malla Interactiva</h1>
+        <p>Marca ramos cumplidos, arrastra y guarda automático.</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btnAddSemester" class="btn">+ Semestre</button>
+      <button id="btnAddCourse" class="btn">+ Ramo</button>
+      <button id="btnExport" class="btn ghost">Exportar</button>
+      <button id="btnImport" class="btn ghost">Importar</button>
+      <button id="btnReset" class="btn danger">Reset</button>
+      <button id="btnTheme" class="btn ghost" aria-label="Cambiar tema">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="summary" aria-label="Resumen de avance">
+      <div class="summaryCard">
+        <div class="summaryBig" id="progressText">0%</div>
+        <div class="summarySmall" id="progressDetail">0 de 0 ramos cumplidos</div>
+      </div>
+      <div class="summaryCard">
+        <div class="summaryBig" id="creditsText">0</div>
+        <div class="summarySmall" id="creditsDetail">créditos aprobados</div>
+      </div>
+    </section>
+
+    <section class="tips">
+      <div class="chip">✅ Marca como cumplido</div>
+      <div class="chip">🖱️ Arrastra y suelta</div>
+      <div class="chip">✏️ Doble clic para editar</div>
+      <div class="chip">💾 Guardado automático</div>
+    </section>
+
+    <section id="grid" class="grid" aria-label="Malla por semestres"></section>
+
+    <dialog id="importDialog" class="dialog">
+      <form method="dialog" class="dialogCard">
+        <h2>Importar malla (JSON)</h2>
+        <p>Pega tu JSON exportado.</p>
+        <textarea id="importTextarea" spellcheck="false"></textarea>
+        <div class="dialogActions">
+          <button class="btn ghost" value="cancel">Cancelar</button>
+          <button id="btnImportConfirm" class="btn" value="ok">Importar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
